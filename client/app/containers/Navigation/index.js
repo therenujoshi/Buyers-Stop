@@ -69,20 +69,20 @@ class Navigation extends React.PureComponent {
           <Container>
             <Row>
               <Col md='4' className='text-center d-none d-md-block'>
-                <i className='fa fa-truck' />
-                <span>Free Shipping</span>
+                <i className='fa fa-gratipay' />
+                <span>A Place For All </span>
               </Col>
               <Col md='4' className='text-center d-none d-md-block'>
-                <i className='fa fa-credit-card' />
-                <span>Payment Methods</span>
+                
+                <span><i className='fa fa-cart-plus' />Welcome To Buyer's Stop!</span>
               </Col>
               <Col md='4' className='text-center d-none d-md-block'>
-                <i className='fa fa-phone' />
-                <span>Call us 951-999-9999</span>
+                <i className='fa fa-envelope-open-o' />
+                <span>Connect Us: buyer's-stop@gmail.com</span>
               </Col>
               <Col xs='12' className='text-center d-block d-md-none'>
-                <i className='fa fa-phone' />
-                <span> Need advice? Call us 951-999-9999</span>
+                <i className='fa ffa-mobile' />
+                <span> Need advice? Call us 9561298256</span>
               </Col>
             </Row>
           </Container>
@@ -105,7 +105,7 @@ class Navigation extends React.PureComponent {
                   onClick={() => this.toggleMenu()}
                 />
                 <Link to='/'>
-                  <h1 className='logo'>MERN Store</h1>
+                  <h1 className='logo'>Buyer's Stop 🛒</h1>
                 </Link>
               </div>
             </Col>

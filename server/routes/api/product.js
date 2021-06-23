@@ -34,6 +34,7 @@ router.post(
       const isActive = req.body.isActive;
       const brand = req.body.brand;
       const image = req.file;
+      console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<', image, req.body.image)
 
       if (!sku) {
         return res.status(400).json({ error: 'You must enter sku.' });
@@ -61,24 +62,24 @@ router.post(
 
       let imageUrl = '';
       //let imageKey = '';
-      if(image){
-       const data = new FormData();
-         data.append("file", image);
-         data.append("upload_preset","VibeIn");
-         data.append("cloud_name","cloudvibein");
-         fetch("https://api.cloudinary.com/v1_1/cloudvibein/image/upload",{
-             method : "post",
-             body : data
-         })
-         .then(res=>res.json())
-         .then(data=>{  
-             imageUrl=data.url;
-             console.log(data)
-         })
-         .catch(err=>{
-             console.log(err);
-         })
-        }
+      // if(image){
+      //  const data = new FormData();
+      //    data.append("file", image);
+      //    data.append("upload_preset","VibeIn");
+      //    data.append("cloud_name","cloudvibein");
+      //    fetch("https://api.cloudinary.com/v1_1/cloudvibein/image/upload",{
+      //        method : "post",
+      //        body : data
+      //    })
+      //    .then(res=>res.json())
+      //    .then(data=>{  
+      //        imageUrl=data.url;
+      //        console.log(data)
+      //    })
+      //    .catch(err=>{
+      //        console.log(err);
+      //    })
+      //   }
 
       /*if (image) {
         const s3bucket = new AWS.S3({

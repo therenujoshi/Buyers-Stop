@@ -136,14 +136,26 @@ const AddProduct = props => {
             />
           </Col>
           <Col xs='12' md='12'>
+          {/* <Input
+              type={'text'}
+              error={formErrors['sku']}
+              label={'Image'}
+              name={'sku'}
+              placeholder={'Enter Image Link'}
+              value={productFormData.sku}
+              onInputChange={(name, value) => {
+                productChange(name, value);
+              }}
+            /> */}
             <Input
-              type={'file'}
-              error={formErrors['file']}
+              type={'text'}
+              // error={formErrors['file']}
               name={'image'}
               label={'file'}
-              placeholder={'Please Upload Image'}
+              placeholder={'Enter Image Link'}
               value={image}
               onInputChange={(name, value) => {
+                console.log(value);
                 productChange(name, value);
               }}
             />

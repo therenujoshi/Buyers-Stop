@@ -82,7 +82,7 @@ const OrderItems = props => {
                             </h4>
                           </Link>
                           <div className='d-flex align-items-center justify-content-between'>
-                            <span className='price'>${item.product.price}</span>
+                            <span className='price'><i className="fa fa-inr" aria-hidden="true"/>{item.product.price}</span>
                           </div>
                         </>
                       ) : (
@@ -100,7 +100,7 @@ const OrderItems = props => {
                       </p>
                       <p>
                         Total Price
-                        <span className='order-label'>{` $${item.totalPrice}`}</span>
+                        <span className='order-label'>{` ₹${item.totalPrice}`}</span>
                       </p>
                     </div>
                   </div>
@@ -118,7 +118,7 @@ const OrderItems = props => {
                   </div>
 
                   <div className='text-center'>
-                    <p className='order-label'>{` $${item.totalPrice}`}</p>
+                    <p className='order-label'>{` ₹${item.totalPrice}`}</p>
 
                     <p>Total Price</p>
                   </div>

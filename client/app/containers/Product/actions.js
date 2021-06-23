@@ -35,6 +35,7 @@ import { allFieldsValidation } from '../../utils/validation';
 export const productChange = (name, value) => {
   let formData = {};
   formData[name] = value;
+  console.log(value);
   return {
     type: PRODUCT_CHANGE,
     payload: formData
@@ -44,7 +45,6 @@ export const productChange = (name, value) => {
 export const productEditChange = (name, value) => {
   let formData = {};
   formData[name] = value;
-
   return {
     type: PRODUCT_EDIT_CHANGE,
     payload: formData
@@ -222,12 +222,13 @@ export const addProduct = () => {
         image: 'required'
       };
 
+      console.log(getState().product);
       const product = getState().product.productFormData;
       const user = getState().account.user;
       const brands = getState().brand.brandsSelect;
 
       const brand = unformatSelectOptions([product.brand]);
-
+      console.log(product);
       const newProduct = {
         sku: product.sku,
         name: product.name,

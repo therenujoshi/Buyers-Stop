@@ -37,7 +37,7 @@ const initialState = {
     description: '',
     quantity: 1,
     price: 1,
-    image: {},
+    image: '',
     isActive: true,
     taxable: { value: 0, label: 'No' },
     brand: {

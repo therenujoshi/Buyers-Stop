@@ -52,7 +52,7 @@ const ProductList = props => {
                     </div>
                   </div>
                   <div className='item-footer px-3'>
-                    <p className='price'>${product.price}</p>
+                    <p className='price'><i className="fa fa-inr" aria-hidden="true"/>{product.price}</p>
                     {/* {product.quantity > 0 ? (
                         <p className='stock in-stock'>In stock</p>
                       ) : (

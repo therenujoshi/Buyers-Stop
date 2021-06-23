@@ -48,7 +48,7 @@ const WishList = props => {
             {getProductImage(item)}
             <div className='d-flex flex-column justify-content-center px-3 text-truncate'>
               <h4 className='text-truncate'>{item.product.name}</h4>
-              <p className='mb-2 price'>${item.product.price}</p>
+              <p className='mb-2 price'><i className="fa fa-inr" aria-hidden="true"/>{item.product.price}</p>
               <label className='text-truncate'>{`Wishlist Added on ${formatDate(
                 item.created
               )}`}</label>
