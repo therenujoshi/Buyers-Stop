@@ -34,6 +34,7 @@ const AddProduct = props => {
     addProduct();
   };
 
+  console.log(productFormData)
   return (
     <div className='add-product'>
       <h1 />
@@ -136,17 +137,21 @@ const AddProduct = props => {
             />
           </Col>
           <Col xs='12' md='12'>
-          {/* <Input
+           <Input
               type={'text'}
-              error={formErrors['sku']}
-              label={'Image'}
-              name={'sku'}
+              error={formErrors['image']}
+              label={'Image Link'}
+              name={'image'}
               placeholder={'Enter Image Link'}
-              value={productFormData.sku}
+              value={productFormData.image}
               onInputChange={(name, value) => {
+                console.log(value);
                 productChange(name, value);
               }}
-            /> */}
+             
+/*          />
+            //working code part for image upload
+            
             <Input
               type={'text'}
               // error={formErrors['file']}
@@ -157,7 +162,7 @@ const AddProduct = props => {
               onInputChange={(name, value) => {
                 console.log(value);
                 productChange(name, value);
-              }}
+              }}*/
             />
           </Col>
           <Col xs='12' md='12' className='my-2'>

@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const AWS = require('aws-sdk');
 const Mongoose = require('mongoose');
+const fetch= require('node-fetch');
 var jwt = require('jsonwebtoken');
 var FormData = require('form-data');
 
@@ -33,8 +34,9 @@ router.post(
       const taxable = req.body.taxable;
       const isActive = req.body.isActive;
       const brand = req.body.brand;
-      const image = req.file;
-      console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<', image, req.body.image)
+      const image = req.body.image;
+     // const image = req.file;
+      //console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<', image, req.body.image)
 
       if (!sku) {
         return res.status(400).json({ error: 'You must enter sku.' });
@@ -62,24 +64,55 @@ router.post(
 
       let imageUrl = '';
       //let imageKey = '';
-      // if(image){
-      //  const data = new FormData();
-      //    data.append("file", image);
-      //    data.append("upload_preset","VibeIn");
-      //    data.append("cloud_name","cloudvibein");
-      //    fetch("https://api.cloudinary.com/v1_1/cloudvibein/image/upload",{
-      //        method : "post",
-      //        body : data
-      //    })
-      //    .then(res=>res.json())
-      //    .then(data=>{  
-      //        imageUrl=data.url;
-      //        console.log(data)
-      //    })
-      //    .catch(err=>{
-      //        console.log(err);
-      //    })
-      //   }
+      if(image){
+       const data = new FormData();
+         data.append("file", image);
+         data.append("upload_preset","buyers-stop");
+         data.append("cloud_name","cloudvibein");
+         fetch("https://api.cloudinary.com/v1_1/cloudvibein/image/upload",{
+             method : "post",
+             body : data
+         })
+         .then(res=>res.json())
+         .then(async (response)=>{  
+             imageUrl=response.url;
+             console.log(imageUrl);
+            //console.log(data)
+            const product = new Product({
+              sku,
+              name,
+              description,
+              quantity,
+              price,
+              taxable,
+              isActive,
+              brand,
+              imageUrl: response.url
+            });
+              
+            console.log({
+              sku,
+              name,
+              description,
+              quantity,
+              price,
+              taxable,
+              isActive,
+              brand,
+              imageUrl: response.url
+            });
+            const savedProduct = await product.save();
+      
+            res.status(200).json({
+              success: true,
+              message: `Product has been added successfully!`,
+              product: savedProduct
+            });
+         })
+         .catch(err=>{
+             console.log(err);
+         })
+        }
 
       /*if (image) {
         const s3bucket = new AWS.S3({
@@ -102,7 +135,7 @@ router.post(
         imageKey = s3Upload.key;
       } */
 
-      const product = new Product({
+     /* const product = new Product({
         sku,
         name,
         description,
@@ -113,14 +146,25 @@ router.post(
         brand,
         imageUrl
       });
-
+        
+      console.log({
+        sku,
+        name,
+        description,
+        quantity,
+        price,
+        taxable,
+        isActive,
+        brand,
+        imageUrl
+      });
       const savedProduct = await product.save();
 
       res.status(200).json({
         success: true,
         message: `Product has been added successfully!`,
         product: savedProduct
-      });
+      });*/
     } catch (error) {
       console.log(error,"X13yuuuuuuuu7865746")
       return res.status(400).json({

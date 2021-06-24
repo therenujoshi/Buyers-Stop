@@ -32,7 +32,7 @@ const ProductSchema = new Schema({
   },
   description: {
     type: String,
-    trim: true
+    //trim: true
   },
   quantity: {
     type: Number
