@@ -139,17 +139,50 @@ export const addOrder = () => {
 
 export const placeOrder = () => {
   return (dispatch, getState) => {
-    const token = localStorage.getItem('token');
+    console.log(getState().cart)
+
+
+    const options = {
+      key: process.env.RAZOR_PAY_TEST_KEY,
+      amount: getState().cartTotal * 100,
+      name: 'Payments',
+      description: 'Payments',
+      handler(response) {
+        const paymentId = response.razorpay_payment_id;
+        const url = process.env.URL + '/api/v1/rzp_capture/' + paymentId + '/' + payment_amount;
+        // Using my server endpoints to capture the payment
+        fetch(url, {
+          method: 'get',
+          headers: {
+            "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+          }
+        })
+          .then(resp => resp.json())
+          .then(function (data) {
+            console.log('Request succeeded with JSON response', data);
+            self.setState({
+              refund_id: response.razorpay_payment_id
+            });
+          })
+          .catch(function (error) {
+            console.log('Request failed', error);
+          });
+      },
+     
+    };
+     const rzp1 = new Razorpay(options);
+     rzp1.open();
+    /*const token = localStorage.getItem('token');
 
     const cartItems = getState().cart.cartItems;
-
+   
     if (token && cartItems.length > 0) {
       Promise.all([dispatch(getCartId())]).then(() => {
         dispatch(addOrder());
       });
     }
 
-    dispatch(toggleCart());
+    dispatch(toggleCart());*/
   };
 };
 

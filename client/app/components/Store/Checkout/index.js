@@ -9,7 +9,7 @@ import React from 'react';
 import Button from '../../Common/Button';
 
 const Checkout = props => {
-  const { authenticated, handleShopping, handleCheckout, placeOrder } = props;
+  const { authenticated, handleShopping, handleCheckout, placeOrder,  } = props;
 
   return (
     <div className='easy-checkout'>
