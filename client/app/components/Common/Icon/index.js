@@ -338,7 +338,6 @@ export {
   BarsIcon,
   CloseIcon,
   GoogleIcon,
-  FacebookIcon,
   CheckIcon,
   RefreshIcon,
   AddressIcon,

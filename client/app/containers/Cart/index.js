@@ -28,7 +28,7 @@ class Cart extends React.PureComponent {
       placeOrder,
       authenticated
     } = this.props;
-
+console.log(cartItems, cartTotal)
     return (
       <div className='cart'>
         <div className='cart-header'>
@@ -60,6 +60,7 @@ class Cart extends React.PureComponent {
           <div className='cart-checkout'>
             <CartSummary cartTotal={cartTotal} />
             <Checkout
+               cartItems={cartItems}
               handleShopping={handleShopping}
               handleCheckout={handleCheckout}
               placeOrder={placeOrder}
