@@ -4,18 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const passport = require('passport');
-/*const nodemailer = require('nodemailer');
-const sendgridTransport = require('nodemailer-sendgrid-transport');
-const {SENDGRID_API} = require('../../config/keys')
-//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
 
-//for sending email confirmation
-const transporter = nodemailer.createTransport(sendgridTransport({
-    auth:{
-     
-        api_key:SENDGRID_API
-    }
-})); */
 const auth = require('../../middleware/auth');
 
 // Bring in Models & Helpers
