@@ -18,6 +18,7 @@ class Homepage extends React.PureComponent {
   render() {
     return (
       <div className='homepage'>
+        <h3><center><strong><emphasis>“Whoever said that money can’t buy happiness simply didn’t know where to go shopping.” - Bo Derek</emphasis></strong></center></h3>
         <Row className='flex-row'>
           <Col xs='12' lg='6' className='order-lg-2 mb-3 px-3 px-md-2'>
             <div className='home-carousel'>
@@ -43,7 +44,7 @@ class Homepage extends React.PureComponent {
           </Col>
           <Col xs='12' lg='3' className='order-lg-3 mb-3 px-3 px-md-2'>
             <div className='d-flex flex-column h-100 justify-content-between'>
-              <img src='/images/banners/banner-2.jpg' className='mb-3' />
+              <img src='/images/banners/banner-1.jpg' className='mb-3' />
               <img src='/images/banners/banner-6.jpg' />
             </div>
           </Col>
