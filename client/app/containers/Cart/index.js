@@ -60,7 +60,7 @@ console.log(cartItems, cartTotal)
           <div className='cart-checkout'>
             <CartSummary cartTotal={cartTotal} />
             <Checkout
-              
+              cartTotal={cartTotal}
               handleShopping={handleShopping}
               handleCheckout={handleCheckout}
               placeOrder={placeOrder}

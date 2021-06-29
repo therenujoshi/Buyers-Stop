@@ -118,6 +118,7 @@ router.post('/register', (req, res) => {
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(user.password, salt, (err, hash) => {
         if (err) {
+          console.log("gvadhcfs tah")
           return res.status(400).json({
             error: 'Your request could not be processed. Please try again.'
           });
@@ -127,6 +128,7 @@ router.post('/register', (req, res) => {
 
         user.save(async (err, user) => {
           if (err) {
+            console.log(err);
             return res.status(400).json({
               error: 'Your request could not be processed. Please try again.'
             });
@@ -136,7 +138,7 @@ router.post('/register', (req, res) => {
             id: user.id
           };
 
-          await mailgun.sendEmail(user.email, 'signup', null, user.profile);
+         // await mailgun.sendEmail(user.email, 'signup', null, user.profile);
 
           jwt.sign(payload, secret, { expiresIn: tokenLife }, (err, token) => {
             res.status(200).json({

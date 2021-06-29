@@ -34,7 +34,7 @@ const UserSchema = new Schema({
   },
   googleId: {
     type: String,
-    unique: true
+    sparse: true
   },
   
   avatar: {

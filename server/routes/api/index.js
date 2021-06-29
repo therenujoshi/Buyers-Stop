@@ -13,9 +13,13 @@ const cartRoutes = require('./cart');
 const orderRoutes = require('./order');
 const reviewRoutes = require('./review');
 const wishlistRoutes = require('./wishlist');
+const paymentRoutes = require('./payment');
 
 // auth routes
 router.use('/auth', authRoutes);
+
+//payment routes
+router.use('/payment', paymentRoutes);
 
 // user routes
 router.use('/user', userRoutes);
