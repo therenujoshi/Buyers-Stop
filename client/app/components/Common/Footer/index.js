@@ -57,12 +57,12 @@ const Footer = () => {
               <ul>{footerLinks}</ul>
             </div>
           </div>
-          <div className='footer-block'>
+          {/*<div className='footer-block'>
             <div className='block-title'>
               <h2>Newsletter</h2>
               <Newsletter />
             </div>
-          </div>
+          </div>*/}
         </div>
         <div className='footer-copyright'>
           <span>© {new Date().getFullYear()} Buyer's Stop</span>
